@@ -132,3 +132,5 @@ def write_to_db(n_clicks,data):
 
 if __name__=="__main__":
     dash_app.run_server(host='0.0.0.0',threaded=True, debug=True, port=8080)
+
+#  hello
