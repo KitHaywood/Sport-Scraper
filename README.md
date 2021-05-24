@@ -42,4 +42,19 @@ pip3 install -r requirements.txt
 ```
 Once the modules having finished installing in the venv we need to have a look at deployment. I use GCP and that will be the focus here. First, if you don't have a GCP account then that is where to start, set one up and then install the gcloud-sdk. Again, there are plenty of youtube videos to use here if you are unsure how to proceed - it is a well documented process.
 
-Once this is set up, go to App Engine in the g
+Once this is set up, go to App Engine and set up a new project, making note of the project ID which you will need shortly.
+
+Got back to the terminal and run:
+```linux
+gcloud config get-value project
+```
+Which will show you the current working project that GCP is set to, if this is not your recently made App Engine target project then run:
+```linux
+gcloud config set value <project-id>
+```
+Now we are almost ready to deploy! To use this file for yourn database you need to alter the credentials at the top of main.py to reflect whatever your credentials are for connecting to your database. So root --> <your-username> and limetree123--> <your-passwd>. I'd give it a local run to make sure this is all working before you deploy to the web by running the python command at the top of this readme. Once you have confirmed the database is connecting correctly - we are now ready to deploy.
+
+  
+```linux
+  gcloud app deploy
+  ````
